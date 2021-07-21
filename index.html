@@ -127,19 +127,9 @@
      // TODO: Make this configurable on Data Type level.
      /*eslint quotes: [2, "double"]*/
      window.CONTENTFUL_FORM_EDITOR_SCHEMA = {
-         "title": "Space",
-         "oneOf": [
-             {
-                 "$ref": "#/definitions/space",
-                 "title": "Space"
-             },
-           
-         ],
-         "definitions": {
-             "space": {
-                 "title": "Person",
+                 "title": "Space",
                  "type": "object",
-                 "id": "person",
+                 "id": "space",
                  "properties": {
                      "mobile": {
                          "type": "string",
@@ -181,9 +171,8 @@
                      },
                      
                  }
-             },
-         }
-     };
+             }
+
 
 
      var cfExt = window.contentfulExtension || window.contentfulWidget;
@@ -252,6 +241,7 @@
              if (!timeout) func.apply(context, args);
          };
      }
+     
 
 
     </script>
