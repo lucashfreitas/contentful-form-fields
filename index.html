@@ -130,105 +130,58 @@
          "title": "Space",
          "oneOf": [
              {
-                 "$ref": "#/definitions/basicperson",
-                 "title": "Basic Person"
+                 "$ref": "#/definitions/space",
+                 "title": "Space"
              },
-             {
-                 "$ref": "#/definitions/person",
-                 "title": "Complex Person"
-             }
+           
          ],
          "definitions": {
-             "basicperson": {
+             "space": {
                  "title": "Person",
                  "type": "object",
                  "id": "person",
                  "properties": {
-                     "name": {
+                     "mobile": {
                          "type": "string",
-                         "description": "First and Last name",
-                         "minLength": 4,
+                         "description":"Space in Mobile",
+                         "default": 'medium',
+                         "enum": [
+                         "default",
+                             "none",
+                             "small",
+                             "medium",
+                             "large"
+                         ],
                          "propertyOrder": 10
                      },
-                     "age": {
-                         "type": "integer",
-                         "default": 21,
-                         "minimum": 18,
-                         "maximum": 99,
+                     "tablet": {
+                         "type": "string",
+                         "description":"Space in Tablet",
+                         "default": 'medium',
+                         "enum": [
+                             "none",
+                             "small",
+                             "medium",
+                             "large"
+                         ],
                          "propertyOrder": 20
                      },
-                     "gender": {
+                     "desktop": {
                          "type": "string",
+                         "default": 'medium',
+                         "description":"Space in Desktop",
                          "enum": [
-                             "male",
-                             "female"
+                             "default",
+                             "none",
+                             "small",
+                             "medium",
+                             "large"
                          ],
                          "propertyOrder": 30
                      },
-                     "favorite_color": {
-                         "type": "string",
-                         "format": "color",
-                         "title": "favorite color",
-                         "default": "#19CD91",
-                         "propertyOrder": 40
-                     }
+                     
                  }
              },
-             "person": {
-                 "$ref": "#/definitions/basicperson",
-                 "properties": {
-                     "location": {
-                         "type": "object",
-                         "title": "Location",
-                         "properties": {
-                             "city": {
-                                 "type": "string"
-                             },
-                             "state": {
-                                 "type": "string"
-                             },
-                             "citystate": {
-                                 "type": "string",
-                                 "description": "This is generated automatically from the previous two fields",
-                                 "template": "{{city}}, {{state}}",
-                                 "watch": {
-                                     "city": "location.city",
-                                     "state": "location.state"
-                                 }
-                             }
-                         }
-                     },
-                     "pets": {
-                         "type": "array",
-                         "format": "table",
-                         "title": "Pets",
-                         "uniqueItems": true,
-                         "items": {
-                             "type": "object",
-                             "properties": {
-                                 "type": {
-                                     "type": "string",
-                                     "enum": [
-                                         "cat",
-                                         "dog",
-                                         "bird",
-                                         "reptile",
-                                         "other"
-                                     ],
-                                     "default": "dog"
-                                 },
-                                 "name": {
-                                     "type": "string"
-                                 },
-                                 "fixed": {
-                                     "type": "boolean",
-                                     "title": "spayed / neutered"
-                                 }
-                             }
-                         }
-                     }
-                 }
-             }
          }
      };
 
